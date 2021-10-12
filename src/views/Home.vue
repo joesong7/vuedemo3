@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>hello vue3</h1>
-    <li v-for="item in userData.book" :key="item.key">
-       {{item.title}}
-    </li>
+ 
+       {{userData.book.results}}
+    
       <input type="text" v-model="search">
       {{newSearch}}
   </div>
@@ -27,9 +27,9 @@ export default {
 
     });
    onMounted(async () => {
-       await axios.get('http://7485-1-200-178-123.ngrok.io/api/book').then((response) => {
+       await axios.get('https://randomuser.me/api').then((response) => {
          userData.book = response.data
-         console.log("mounted");
+         console.log(response.data.results);
       
       
       })
